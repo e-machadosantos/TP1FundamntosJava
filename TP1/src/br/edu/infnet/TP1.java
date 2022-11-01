@@ -1,3 +1,7 @@
+//TP1 da disciplina Fundamentos do Desenvolvimento Java [22E4_1]
+//Professor: Elberth Moraes
+//Aluno: Edvaldo Machado dos Santos
+
 package br.edu.infnet;
 
 import java.util.Scanner;
@@ -12,14 +16,12 @@ public class TP1 {
 	
 	private static void imprimirCadastro(int indice) {
 		
-		System.out.println("-------------------------------------------------");
 		System.out.println("Aluno " + nomes[indice] + " registrado na posicao < " + indice + " >");
-		System.out.println("-------------------------------------------------");
+		imprimirMoldura();
 	}
 	
 	private static void imprimirBoletim(int indice) {
 		
-		System.out.println("-------------------------------------------------");
 		System.out.println("Imprimindo boletim do aluno na posição < " + indice + " >");
 		System.out.println();
 		System.out.println("Aluno: " + nomes[indice]);
@@ -27,7 +29,7 @@ public class TP1 {
 		System.out.println("Nota AV2: " + notaAv2[indice]);
 		System.out.println("Média final: " + calcularMedia(indice));
 		System.out.println("Situação: " + verificaSituacao(indice));
-		System.out.println("-------------------------------------------------");
+		imprimirMoldura();
 	}
 	
 	private static float calcularMedia(int indice) {
@@ -52,6 +54,9 @@ public class TP1 {
 		}		
 	}
 		
+	private static void imprimirMoldura() {
+		System.out.println("-------------------------------------------------");
+	}
 	
 	public static void main(String[] args) {
 		nomes = new String[TAMANHO];
@@ -64,6 +69,7 @@ public class TP1 {
 		String opcao;
 		do {
 			System.out.println("Informe a opção desejada: ");
+			imprimirMoldura();
 			
 			System.out.println("[1] Registrar as notas de um novo aluno");
 			System.out.println("[2] Consultar boletim de um aluno");
@@ -77,7 +83,7 @@ public class TP1 {
 				if(pos < TAMANHO) {
 					
 					System.out.println("Registro de notas");
-					System.out.println("-------------------------------------------------");
+					imprimirMoldura();
 					System.out.print("Informe o aluno para registro: ");					
 					nomes[pos] = in.next();
 					
@@ -97,7 +103,7 @@ public class TP1 {
 				
 			case "2":
 				System.out.println("Consulta de boletim");
-				System.out.println("-------------------------------------------------");
+				imprimirMoldura();
 				System.out.print("Informe o aluno para impressão do boletim: ");
 				int id = in.nextInt();
 				
@@ -110,7 +116,7 @@ public class TP1 {
 				
 			case "3":
 				System.out.println("Consultar notas da turma");
-				System.out.println("-------------------------------------------------");
+				imprimirMoldura();
 				imprimirTurma();
 				break;
 				
